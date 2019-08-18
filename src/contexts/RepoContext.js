@@ -1,6 +1,3 @@
 import React from 'react';
 
-export const RepoContext = React.createContext({
-    repo: {},
-    updateRepo: () => { }
-})
+export const RepoContext = React.createContext();

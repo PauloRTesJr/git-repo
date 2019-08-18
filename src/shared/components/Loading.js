@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import CircleLoader from 'react-spinners/CircleLoader';
+import { LoadingContext } from '../../contexts/LoadingContext';
 
 const LoadingContainer = styled.div`
     display: flex;
@@ -14,10 +15,17 @@ const LoadingContainer = styled.div`
     z-index: 999;
 `;
 
-const Loading = ({ loading }) => (
-    <LoadingContainer>
-        <CircleLoader size={150} color={'#333'} />
-    </LoadingContainer>
-);
+function Loading (props) {
+    const loadingContext = useContext(LoadingContext);
+
+    if (!loadingContext.loading)
+        return null;
+
+    return (
+        <LoadingContainer>
+            <CircleLoader size={150} color={'#333'} />
+        </LoadingContainer>
+    );
+};
 
 export default Loading;

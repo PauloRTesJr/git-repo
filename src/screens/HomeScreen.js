@@ -3,6 +3,7 @@ import Header from '../shared/components/Header';
 import ReposList from '../shared/components/ReposList';
 import { RepoContext } from '../contexts/RepoContext';
 import { LoadingContext } from '../contexts/LoadingContext';
+import CommitList from '../shared/components/CommitsList';
 
 function HomeScreen (props) {
     const loadingContext = useContext(LoadingContext);
@@ -12,20 +13,27 @@ function HomeScreen (props) {
     const [commits, setCommits] = useState(null);
 
     async function fetchData (url, state) {
-        loadingContext.toggleLoading();
+        if (!loadingContext.loading) {
+            loadingContext.toggle(true);
+        }
         const res = await fetch(url);
         res
             .json()
             .then(data => state(data))
             .catch(err => console.log(err))
-            .finally(() => loadingContext.toggleLoading());
+            .finally(() => loadingContext.toggle(false));
     }
 
     let handleChangeRepo = (repo) => {
         console.log(repo);
-        let url = repo.commits_url.replace(/{([^}]*)}/, '');
-        setRepo(repo);
-        fetchData(url, setCommits);
+        if (!repo) {
+            setRepo(null);
+            setCommits(null);
+        } else {
+            let url = repo.commits_url.replace(/{([^}]*)}/, '');
+            setRepo(repo);
+            fetchData(url, setCommits);
+        }
     };
 
     useEffect(() => {
@@ -34,7 +42,7 @@ function HomeScreen (props) {
     }, []);
 
     return (
-        <RepoContext.Provider value={{ dataRepository: repo, dataCommits: commits, handleChange: handleChangeRepo }}>
+        <RepoContext.Provider value={{ selectedRepository: repo, commits: commits, updateRepo: handleChangeRepo }}>
             <div className="home-container">
                 <Header
                     profile={userProfile.login}
@@ -42,6 +50,7 @@ function HomeScreen (props) {
                     profile_url={userProfile.html_url}
                     image_url={userProfile.avatar_url} />
                 <ReposList repos={userRepos} />
+                <CommitList />
             </div>
         </RepoContext.Provider>
     );

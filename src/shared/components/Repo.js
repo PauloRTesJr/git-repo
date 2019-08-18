@@ -6,7 +6,7 @@ import { RepoContext } from '../../contexts/RepoContext';
 
 const Repo = ({ repo }) => (
     <RepoContext.Consumer>
-        {({ dataRepository, dataCommits, handleChange }) => (
+        {({ selectedRepository, commits, updateRepo }) => (
             <div className="card">
                 <div className="card-content">
                     <div className="branchLanguage">
@@ -20,7 +20,7 @@ const Repo = ({ repo }) => (
                     </div>
                     <span className="description">{repo.description}</span>
                 </div>
-                <Button primary onClick={() => handleChange(repo)}>Ver Commits</Button>
+                <Button primary onClick={() => updateRepo(repo)}>Ver Commits</Button>
             </div>
         )}
     </RepoContext.Consumer>

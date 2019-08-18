@@ -7,17 +7,18 @@ import Loading from './shared/components/Loading';
 function App () {
     const [isLoading, setIsLoading] = useState(false);
 
-    let toggleLoading = () => {
-        setIsLoading(!isLoading)
+    let toggleLoading = (loading) => {
+        console.log('Toggle');
+        setIsLoading(loading)
     };
 
     return (
         <div className="App">
-            <LoadingContext.Provider value={{ isLoading: isLoading, toggleLoading: toggleLoading }}>
+            <LoadingContext.Provider value={{ loading: isLoading, toggle: toggleLoading }}>
                 <div className="container">
                     <HomeScreen />
                 </div>
-                <Loading loading={isLoading} />
+                <Loading />
             </LoadingContext.Provider>
         </div>
     );
