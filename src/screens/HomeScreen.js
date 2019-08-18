@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Header from '../shared/components/Header';
 import ReposList from '../shared/components/ReposList';
 import { RepoContext } from '../contexts/RepoContext';
@@ -39,7 +39,7 @@ function HomeScreen (props) {
     useEffect(() => {
         fetchData('https://api.github.com/users/paulortesjr', setUserProfile);
         fetchData('https://api.github.com/users/paulortesjr/repos', setUserRepos);
-    }, []);
+    }, [])
 
     return (
         <RepoContext.Provider value={{ selectedRepository: repo, commits: commits, updateRepo: handleChangeRepo }}>
