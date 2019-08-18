@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import styled from 'styled-components';
 
 const HeaderContainer = styled.div`
@@ -49,5 +50,13 @@ const Header = ({ profile, location, profile_url, image_url }) => (
         </Infos>
     </HeaderContainer>
 );
+
+Header.propTypes = {
+    profile: propTypes.string,
+    location: propTypes.string,
+    profile_url: propTypes.string,
+    image_url: propTypes.string
+}
+
 
 export default Header;
