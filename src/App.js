@@ -8,16 +8,13 @@ function App () {
     const [isLoading, setIsLoading] = useState(false);
 
     let toggleLoading = (loading) => {
-        console.log('Toggle');
         setIsLoading(loading)
     };
 
     return (
         <div className="App">
             <LoadingContext.Provider value={{ loading: isLoading, toggle: toggleLoading }}>
-                <div className="container">
-                    <HomeScreen />
-                </div>
+                <HomeScreen />
                 <Loading />
             </LoadingContext.Provider>
         </div>

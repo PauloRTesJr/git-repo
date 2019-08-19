@@ -1,9 +1,19 @@
 import React, { useState, useContext, useEffect } from 'react';
+import styled from 'styled-components';
 import Header from '../shared/components/Header';
 import ReposList from '../shared/components/ReposList';
 import { RepoContext } from '../contexts/RepoContext';
 import { LoadingContext } from '../contexts/LoadingContext';
 import CommitList from '../shared/components/CommitsList';
+
+const HomeContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+`;
 
 function HomeScreen (props) {
     const loadingContext = useContext(LoadingContext);
@@ -25,7 +35,6 @@ function HomeScreen (props) {
     }
 
     let handleChangeRepo = (repo) => {
-        console.log(repo);
         if (!repo) {
             setRepo(null);
             setCommits(null);
@@ -43,7 +52,7 @@ function HomeScreen (props) {
 
     return (
         <RepoContext.Provider value={{ selectedRepository: repo, commits: commits, updateRepo: handleChangeRepo }}>
-            <div className="home-container">
+            <HomeContainer>
                 <Header
                     profile={userProfile.login}
                     location={userProfile.location}
@@ -51,7 +60,7 @@ function HomeScreen (props) {
                     image_url={userProfile.avatar_url} />
                 <ReposList repos={userRepos} />
                 <CommitList />
-            </div>
+            </HomeContainer>
         </RepoContext.Provider>
     );
 }
