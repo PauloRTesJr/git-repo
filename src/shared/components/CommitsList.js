@@ -67,7 +67,7 @@ function CommitList (props) {
             <ContentContainer>
                 {getCommits().map((item, index) => (
                     <CommitCard key={index}>
-                        <CommitCard.Sha href="item.html_url" target="_blank" rel="noopener noreferrer">{item.sha}</CommitCard.Sha>
+                        <CommitCard.Sha href={item.html_url} target="_blank" rel="noopener noreferrer">{item.sha}</CommitCard.Sha>
                         <CommitCard.Message>{item.commit.message}</CommitCard.Message>
                         <CommitCard.Info>{item.commit.committer.name}</CommitCard.Info>
                         <CommitCard.Info>{item.commit.committer.email}</CommitCard.Info>
