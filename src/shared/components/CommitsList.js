@@ -47,7 +47,7 @@ function CommitList (props) {
     function getCommits () {
         let commits = repoContext.commits;
         if (filter) {
-            commits = commits.filter((commit) => commit.commit.message.includes(filter));
+            commits = commits.filter((commit) => commit.commit.message.toUpperCase().includes(filter.toUpperCase()));
         }
         return commits;
     }
