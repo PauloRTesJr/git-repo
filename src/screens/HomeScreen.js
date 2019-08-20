@@ -5,6 +5,7 @@ import ReposList from '../shared/components/ReposList';
 import { RepoContext } from '../contexts/RepoContext';
 import { LoadingContext } from '../contexts/LoadingContext';
 import CommitList from '../shared/components/CommitsList';
+import { OrderType } from '../shared/enum/OrderType';
 
 const HomeContainer = styled.div`
     display: flex;
@@ -45,13 +46,37 @@ function HomeScreen (props) {
         }
     };
 
+    let changeOrder = (order) => {
+        let sortedRepos = Object.assign([], userRepos);
+        switch (order) {
+            case OrderType.Name:
+                sortedRepos.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+                setUserRepos(sortedRepos);
+                break;
+            case OrderType.Watchers:
+                sortedRepos.sort((a, b) => b.watchers_count - a.watchers_count);
+                setUserRepos(sortedRepos);
+                break;
+            case OrderType.Issues:
+                sortedRepos.sort((a, b) => b.open_issues - a.open_issues);
+                setUserRepos(sortedRepos);
+                break;
+            case OrderType.Stars:
+                sortedRepos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+                setUserRepos(sortedRepos);
+                break;
+            default:
+                break;
+        }
+    };
+
     useEffect(() => {
         fetchData('https://api.github.com/users/paulortesjr', setUserProfile);
         fetchData('https://api.github.com/users/paulortesjr/repos', setUserRepos);
     }, [])
 
     return (
-        <RepoContext.Provider value={{ selectedRepository: repo, commits: commits, updateRepo: handleChangeRepo }}>
+        <RepoContext.Provider value={{ selectedRepository: repo, commits: commits, updateRepo: handleChangeRepo, changeOrder: changeOrder }}>
             <HomeContainer>
                 <Header
                     profile={userProfile.login}
