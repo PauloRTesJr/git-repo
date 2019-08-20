@@ -54,8 +54,7 @@ function OrderRepo (props) {
 
     return (
         <Select value={order} onChange={handleChange}>
-            <option value=""></option>
-            <option value={OrderType.Name}>Nome</option>
+            <option value={OrderType.Name} defaultValue>Nome</option>
             <option value={OrderType.Watchers}>Seguidores</option>
             <option value={OrderType.Issues}>Issues</option>
             <option value={OrderType.Stars}>Stars</option>
