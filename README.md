@@ -1,6 +1,7 @@
 # Test Gympass
 
 Teste realizado para Desenvolvedor Frontend.
+Deploy em: https://paulo-test-gympass.web.app/
 
 ## Instruções para o uso
 - Clone o repositório com `git clone https://github.com/PauloRTesJr/test-gympass.git`
