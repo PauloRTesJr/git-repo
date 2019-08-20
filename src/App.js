@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.scss';
 import HomeScreen from './screens/HomeScreen';
 import { LoadingContext } from './contexts/LoadingContext';
 import Loading from './shared/components/Loading';

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <select
+    class="sc-bdVaJa elSbrI"
+  >
+    <option
+      value="0"
+    >
+      Nome
+    </option>
+    <option
+      value="1"
+    >
+      Seguidores
+    </option>
+    <option
+      value="2"
+    >
+      Issues
+    </option>
+    <option
+      value="3"
+    >
+      Stars
+    </option>
+  </select>
+</DocumentFragment>
+`;

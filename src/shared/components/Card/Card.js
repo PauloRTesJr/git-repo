@@ -7,6 +7,7 @@ import Name from './Name';
 import Owner from './Owner';
 import OwnerTitle from './OwnerTitle';
 import OwnerPhoto from './OwnerPhoto';
+import Infos from './Infos';
 
 const Card = styled.div`
     display: flex;
@@ -36,6 +37,7 @@ Card.Content = CardContent;
 Card.BranchLanguage = BranchLanguage;
 Card.BranchLanguageText = BranchLanguageText;
 Card.Name = Name;
+Card.Infos = Infos;
 Card.Owner = Owner;
 Card.OwnerTitle = OwnerTitle;
 Card.OwnerPhoto = OwnerPhoto;

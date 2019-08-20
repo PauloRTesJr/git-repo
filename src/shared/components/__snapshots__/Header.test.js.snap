@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdVaJa cnmeLo"
+  >
+    <img
+      alt="avatar"
+      class="sc-bwzfXH kGMQuI"
+    />
+    <div
+      class="sc-htpNat cIDpcE"
+    >
+      <a
+        class="sc-bxivhb ePvsvV"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        @undefined
+      </a>
+      <span
+        class="infos-location sc-ifAKCX dVDKck"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
