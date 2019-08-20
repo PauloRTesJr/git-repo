@@ -20,6 +20,6 @@ Além de outras features como arrow functions, destructuring, entre outras.
 
 ## Observações
 
-Gostaria de deixar aqui alguns comentários sobre o teste. Como eu estou acostumado com angular e não havia feito algo com React usando hooks e context ao invés de Redux, me levou um tempo para entender o funcionamento. Após conseguir entender o funcionamento, é possível perceber que React se torna uma ferramente bem mais simples de utilizar e cumpre muito bem com o objetivo de uma biblioteca de interfaces.
+Gostaria de deixar aqui alguns comentários sobre o teste. Como eu estou acostumado com Angular e não havia feito algo com React usando hooks e context, só havia usado Redux, me levou um tempo para entender o funcionamento. Após conseguir entender o funcionamento, é possível perceber que React se torna uma ferramente bem mais simples de utilizar e cumpre muito bem com o objetivo de uma biblioteca de interfaces.
 
-Alguns pontos não pude completar como infinite scroll e unit tests devido a tempo, já que aprender Hooks e Contexts me levou muito mais tempo do que o esperado, e se trata de um mundo muito diferente do Angular. Outro ponto que gostaria de ter melhorado, é o arquivo de tela, nesse caso o `HomeScreen.js`, onde achei que as coisas ficaram um pouco bagunçadas, com muitas informações e misturadas com chamada de API.
+Não pude completar algumas features como infinite scroll e unit tests devido a tempo, já que aprender Hooks e Contexts me levou muito mais tempo do que o esperado, e se trata de um mundo muito diferente do Angular. Outro ponto que gostaria de ter melhorado, é o arquivo de tela, nesse caso o `HomeScreen.js`, onde achei que as coisas ficaram um pouco bagunçadas, com muitas informações e misturadas com chamada de API.
